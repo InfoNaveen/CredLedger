@@ -3,29 +3,34 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* ProofChain Web3 Dark Theme */
+/* ProofChain Web3 Dark Theme - High Contrast */
 :root {
   --background: #0a0a0f;
-  --foreground: #f4f4f5;
-  --card: #111118;
-  --card-foreground: #f4f4f5;
-  --popover: #111118;
-  --popover-foreground: #f4f4f5;
+  --foreground: #ffffff;
+  --card: #13131a;
+  --card-foreground: #ffffff;
+  --popover: #13131a;
+  --popover-foreground: #ffffff;
   --primary: #7c3aed;
   --primary-foreground: #ffffff;
   --secondary: #0d9488;
   --secondary-foreground: #ffffff;
-  --muted: #1a1a24;
-  --muted-foreground: #71717a;
-  --accent: #1a1a24;
-  --accent-foreground: #f4f4f5;
+  --muted: #1a1a2e;
+  --muted-foreground: #e2e8f0;
+  --accent: #1a1a2e;
+  --accent-foreground: #ffffff;
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
   --success: #22c55e;
   --success-foreground: #ffffff;
-  --border: #27272a;
-  --input: #27272a;
+  --border: rgba(124, 58, 237, 0.3);
+  --input: #1a1a2e;
+  --input-foreground: #ffffff;
   --ring: #7c3aed;
+  --placeholder: #64748b;
+  --text-primary: #ffffff;
+  --text-secondary: #e2e8f0;
+  --text-muted: #cbd5e1;
   --chart-1: #7c3aed;
   --chart-2: #0d9488;
   --chart-3: #22c55e;
@@ -33,12 +38,12 @@
   --chart-5: #ef4444;
   --radius: 0.75rem;
   --sidebar: #0a0a0f;
-  --sidebar-foreground: #f4f4f5;
+  --sidebar-foreground: #ffffff;
   --sidebar-primary: #7c3aed;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #1a1a24;
-  --sidebar-accent-foreground: #f4f4f5;
-  --sidebar-border: #27272a;
+  --sidebar-accent: #1a1a2e;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: rgba(124, 58, 237, 0.3);
   --sidebar-ring: #7c3aed;
 }
 
@@ -65,7 +70,12 @@
   --color-success-foreground: var(--success-foreground);
   --color-border: var(--border);
   --color-input: var(--input);
+  --color-input-foreground: var(--input-foreground);
   --color-ring: var(--ring);
+  --color-placeholder: var(--placeholder);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);

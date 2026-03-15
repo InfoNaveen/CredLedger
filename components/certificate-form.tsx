@@ -143,29 +143,29 @@ export function CertificateForm() {
 
   if (issuedCertificate) {
     return (
-      <div className="w-full max-w-xl mx-auto p-8 rounded-2xl bg-card border-2 border-success/50 shadow-[0_0_40px_rgba(34,197,94,0.15)]">
+      <div className="w-full max-w-xl mx-auto p-8 rounded-2xl bg-[#13131a] border-2 border-[#22c55e]/50 shadow-[0_0_40px_rgba(34,197,94,0.15)]">
         <div className="flex flex-col items-center text-center space-y-6">
-          <div className="p-4 rounded-full bg-success/10">
-            <CheckCircle className="h-12 w-12 text-success" />
+          <div className="p-4 rounded-full bg-[#22c55e]/10">
+            <CheckCircle className="h-12 w-12 text-[#22c55e]" />
           </div>
           
-          <h2 className="text-2xl font-bold text-success">Certificate Issued Successfully</h2>
+          <h2 className="text-2xl font-bold text-[#22c55e]">Certificate Issued Successfully</h2>
           
-          <div className="w-full space-y-4 p-6 rounded-xl bg-muted/30">
+          <div className="w-full space-y-4 p-6 rounded-xl bg-[#1a1a2e]">
             <div className="space-y-2">
-              <p className="text-sm text-muted-foreground">Certificate Hash</p>
-              <p className="font-mono text-sm text-foreground bg-muted/50 p-3 rounded-lg break-all">
+              <p className="text-sm text-[#cbd5e1]">Certificate Hash</p>
+              <p className="font-mono text-sm text-white bg-[#0a0a0f] p-3 rounded-lg break-all">
                 {issuedCertificate.certificateHash}
               </p>
             </div>
             
             <div className="space-y-2">
-              <p className="text-sm text-muted-foreground">View on IPFS</p>
+              <p className="text-sm text-[#cbd5e1]">View on IPFS</p>
               <a
                 href={issuedCertificate.ipfsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 font-mono text-sm text-secondary hover:text-secondary/80 transition-colors"
+                className="flex items-center justify-center gap-2 font-mono text-sm text-[#0d9488] hover:text-[#14b8a6] transition-colors"
               >
                 {issuedCertificate.ipfsUrl}
                 <ExternalLink className="h-4 w-4" />
@@ -175,7 +175,7 @@ export function CertificateForm() {
 
           <button
             onClick={resetForm}
-            className="px-6 py-3 rounded-lg bg-primary text-primary-foreground font-medium transition-all duration-300 hover:shadow-[0_0_20px_rgba(124,58,237,0.5)]"
+            className="px-6 py-3 rounded-lg bg-[#7c3aed] text-white font-medium transition-all duration-300 hover:shadow-[0_0_20px_#7c3aed]"
           >
             Issue Another Certificate
           </button>
@@ -185,11 +185,11 @@ export function CertificateForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="w-full max-w-xl mx-auto p-8 rounded-2xl bg-card border border-border/50">
+    <form onSubmit={handleSubmit} className="w-full max-w-xl mx-auto p-8 rounded-2xl bg-[#13131a] border border-[rgba(124,58,237,0.3)]">
       <div className="space-y-6">
         {/* Recipient Name */}
         <div className="space-y-2">
-          <label htmlFor="recipient" className="block text-sm font-medium">
+          <label htmlFor="recipient" className="block text-sm font-medium text-[#e2e8f0]">
             Recipient Name
           </label>
           <input
@@ -198,18 +198,18 @@ export function CertificateForm() {
             value={formData.recipient}
             onChange={handleInputChange("recipient")}
             placeholder="Enter recipient's full name"
-            className={`w-full px-4 py-3 rounded-lg bg-muted/30 border transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary/50 ${
-              errors.recipient ? "border-destructive" : "border-border/50 hover:border-primary/50"
+            className={`w-full px-4 py-3 rounded-lg bg-[#1a1a2e] text-white placeholder-[#64748b] border transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#7c3aed] ${
+              errors.recipient ? "border-[#ef4444]" : "border-[rgba(124,58,237,0.3)] hover:border-[#7c3aed]/60"
             }`}
           />
           {errors.recipient && (
-            <p className="text-sm text-destructive">{errors.recipient}</p>
+            <p className="text-sm text-[#ef4444]">{errors.recipient}</p>
           )}
         </div>
 
         {/* Issuer Name */}
         <div className="space-y-2">
-          <label htmlFor="issuer" className="block text-sm font-medium">
+          <label htmlFor="issuer" className="block text-sm font-medium text-[#e2e8f0]">
             Issuer Name
           </label>
           <input
@@ -218,18 +218,18 @@ export function CertificateForm() {
             value={formData.issuer}
             onChange={handleInputChange("issuer")}
             placeholder="Enter issuing organization"
-            className={`w-full px-4 py-3 rounded-lg bg-muted/30 border transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary/50 ${
-              errors.issuer ? "border-destructive" : "border-border/50 hover:border-primary/50"
+            className={`w-full px-4 py-3 rounded-lg bg-[#1a1a2e] text-white placeholder-[#64748b] border transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#7c3aed] ${
+              errors.issuer ? "border-[#ef4444]" : "border-[rgba(124,58,237,0.3)] hover:border-[#7c3aed]/60"
             }`}
           />
           {errors.issuer && (
-            <p className="text-sm text-destructive">{errors.issuer}</p>
+            <p className="text-sm text-[#ef4444]">{errors.issuer}</p>
           )}
         </div>
 
         {/* Event / Credential Name */}
         <div className="space-y-2">
-          <label htmlFor="event" className="block text-sm font-medium">
+          <label htmlFor="event" className="block text-sm font-medium text-[#e2e8f0]">
             Event / Credential Name
           </label>
           <input
@@ -238,18 +238,18 @@ export function CertificateForm() {
             value={formData.event}
             onChange={handleInputChange("event")}
             placeholder="e.g., Web3 Hackathon, Blockchain Developer Certification"
-            className={`w-full px-4 py-3 rounded-lg bg-muted/30 border transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary/50 ${
-              errors.event ? "border-destructive" : "border-border/50 hover:border-primary/50"
+            className={`w-full px-4 py-3 rounded-lg bg-[#1a1a2e] text-white placeholder-[#64748b] border transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#7c3aed] ${
+              errors.event ? "border-[#ef4444]" : "border-[rgba(124,58,237,0.3)] hover:border-[#7c3aed]/60"
             }`}
           />
           {errors.event && (
-            <p className="text-sm text-destructive">{errors.event}</p>
+            <p className="text-sm text-[#ef4444]">{errors.event}</p>
           )}
         </div>
 
         {/* Issue Date */}
         <div className="space-y-2">
-          <label htmlFor="date" className="block text-sm font-medium">
+          <label htmlFor="date" className="block text-sm font-medium text-[#e2e8f0]">
             Issue Date
           </label>
           <input
@@ -257,40 +257,40 @@ export function CertificateForm() {
             type="date"
             value={formData.date}
             onChange={handleInputChange("date")}
-            className={`w-full px-4 py-3 rounded-lg bg-muted/30 border transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary/50 ${
-              errors.date ? "border-destructive" : "border-border/50 hover:border-primary/50"
+            className={`w-full px-4 py-3 rounded-lg bg-[#1a1a2e] text-white border transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#7c3aed] ${
+              errors.date ? "border-[#ef4444]" : "border-[rgba(124,58,237,0.3)] hover:border-[#7c3aed]/60"
             } [color-scheme:dark]`}
           />
           {errors.date && (
-            <p className="text-sm text-destructive">{errors.date}</p>
+            <p className="text-sm text-[#ef4444]">{errors.date}</p>
           )}
         </div>
 
         {/* File Upload */}
         <div className="space-y-2">
-          <label htmlFor="file" className="block text-sm font-medium">
+          <label htmlFor="file" className="block text-sm font-medium text-[#e2e8f0]">
             Upload Certificate File
           </label>
           <div
             onClick={() => fileInputRef.current?.click()}
             className={`flex flex-col items-center justify-center p-8 rounded-lg border-2 border-dashed cursor-pointer transition-all duration-300 ${
               errors.file
-                ? "border-destructive bg-destructive/5"
+                ? "border-[#ef4444] bg-[#ef4444]/5"
                 : formData.file
-                ? "border-primary/50 bg-primary/5"
-                : "border-border/50 hover:border-primary/50 hover:bg-muted/20"
+                ? "border-[#7c3aed]/50 bg-[#7c3aed]/5"
+                : "border-[rgba(124,58,237,0.3)] hover:border-[#7c3aed]/60 hover:bg-[#1a1a2e]"
             }`}
           >
             {formData.file ? (
-              <div className="flex items-center gap-3 text-primary">
+              <div className="flex items-center gap-3 text-[#7c3aed]">
                 <FileText className="h-8 w-8" />
-                <span className="font-medium">{formData.file.name}</span>
+                <span className="font-medium text-white">{formData.file.name}</span>
               </div>
             ) : (
-              <div className="flex flex-col items-center gap-2 text-muted-foreground">
+              <div className="flex flex-col items-center gap-2 text-[#cbd5e1]">
                 <Upload className="h-8 w-8" />
-                <span>Click to upload or drag and drop</span>
-                <span className="text-xs">PDF, PNG, JPG up to 10MB</span>
+                <span className="text-white">Click to upload or drag and drop</span>
+                <span className="text-xs text-[#64748b]">PDF, PNG, JPG up to 10MB</span>
               </div>
             )}
           </div>
@@ -303,7 +303,7 @@ export function CertificateForm() {
             className="hidden"
           />
           {errors.file && (
-            <p className="text-sm text-destructive">{errors.file}</p>
+            <p className="text-sm text-[#ef4444]">{errors.file}</p>
           )}
         </div>
 
@@ -311,7 +311,7 @@ export function CertificateForm() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full flex items-center justify-center gap-2 px-6 py-4 rounded-lg bg-primary text-primary-foreground font-semibold text-lg transition-all duration-300 hover:shadow-[0_0_30px_rgba(124,58,237,0.6)] disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full flex items-center justify-center gap-2 px-6 py-4 rounded-lg bg-[#7c3aed] text-white font-semibold text-lg transition-all duration-300 hover:shadow-[0_0_20px_#7c3aed] disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {isSubmitting ? (
             <>

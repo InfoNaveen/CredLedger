@@ -55,10 +55,10 @@ export function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
             <div className="relative">
-              <Shield className="h-8 w-8 text-primary transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(124,58,237,0.6)]" />
+              <Shield className="h-8 w-8 text-[#7c3aed] transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(124,58,237,0.6)]" />
               <div className="absolute inset-0 bg-primary/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
-            <span className="text-xl font-bold tracking-tight">ProofChain</span>
+            <span className="text-xl font-bold tracking-tight text-white">ProofChain</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -68,10 +68,10 @@ export function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "text-sm font-medium transition-colors hover:text-primary",
+                  "text-sm font-medium transition-all duration-300",
                   pathname === link.href
-                    ? "text-primary"
-                    : "text-muted-foreground"
+                    ? "text-[#7c3aed] drop-shadow-[0_0_8px_rgba(124,58,237,0.6)]"
+                    : "text-[#e2e8f0] hover:text-[#7c3aed] hover:drop-shadow-[0_0_8px_rgba(124,58,237,0.4)]"
                 )}
               >
                 {link.label}
@@ -82,9 +82,9 @@ export function Navbar() {
           {/* Wallet Button */}
           <div className="flex items-center gap-4">
             {walletAddress ? (
-              <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-muted/50 border border-border">
-                <div className="h-2 w-2 rounded-full bg-success animate-pulse" />
-                <span className="font-mono text-sm text-muted-foreground">
+              <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#1a1a2e] border border-[#7c3aed]/30">
+                <div className="h-2 w-2 rounded-full bg-[#22c55e] animate-pulse" />
+                <span className="font-mono text-sm text-[#e2e8f0]">
                   {shortenAddress(walletAddress)}
                 </span>
               </div>
@@ -92,7 +92,7 @@ export function Navbar() {
               <button
                 onClick={connectWallet}
                 disabled={isConnecting}
-                className="hidden md:inline-flex px-4 py-2 rounded-lg bg-primary text-primary-foreground font-medium text-sm transition-all duration-300 hover:shadow-[0_0_20px_rgba(124,58,237,0.5)] disabled:opacity-50 disabled:cursor-not-allowed"
+                className="hidden md:inline-flex px-4 py-2 rounded-lg bg-transparent border border-[#7c3aed] text-white font-medium text-sm transition-all duration-300 hover:shadow-[0_0_20px_rgba(124,58,237,0.5)] hover:bg-[#7c3aed]/10 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isConnecting ? "Connecting..." : "Connect Wallet"}
               </button>
@@ -101,7 +101,7 @@ export function Navbar() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 rounded-lg hover:bg-muted/50 transition-colors"
+              className="md:hidden p-2 rounded-lg hover:bg-[#1a1a2e] transition-colors text-white"
             >
               {mobileMenuOpen ? (
                 <X className="h-6 w-6" />
@@ -114,17 +114,17 @@ export function Navbar() {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden border-t border-border/40 py-4 space-y-4">
+          <div className="md:hidden border-t border-[#7c3aed]/20 py-4 space-y-4">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
                 className={cn(
-                  "block px-4 py-2 text-sm font-medium rounded-lg transition-colors",
+                  "block px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300",
                   pathname === link.href
-                    ? "text-primary bg-primary/10"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                    ? "text-[#7c3aed] bg-[#7c3aed]/10"
+                    : "text-[#e2e8f0] hover:text-white hover:bg-[#1a1a2e]"
                 )}
               >
                 {link.label}
@@ -134,7 +134,7 @@ export function Navbar() {
               <button
                 onClick={connectWallet}
                 disabled={isConnecting}
-                className="w-full px-4 py-2 rounded-lg bg-primary text-primary-foreground font-medium text-sm transition-all duration-300 hover:shadow-[0_0_20px_rgba(124,58,237,0.5)] disabled:opacity-50"
+                className="w-full px-4 py-2 rounded-lg bg-transparent border border-[#7c3aed] text-white font-medium text-sm transition-all duration-300 hover:shadow-[0_0_20px_rgba(124,58,237,0.5)] hover:bg-[#7c3aed]/10 disabled:opacity-50"
               >
                 {isConnecting ? "Connecting..." : "Connect Wallet"}
               </button>

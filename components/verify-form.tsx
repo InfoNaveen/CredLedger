@@ -111,38 +111,38 @@ export function VerifyForm() {
   // Verified Result
   if (result?.verified) {
     return (
-      <div className="w-full max-w-xl mx-auto p-8 rounded-2xl bg-card border-2 border-success/50 shadow-[0_0_40px_rgba(34,197,94,0.2)]">
+      <div className="w-full max-w-xl mx-auto p-8 rounded-2xl bg-[#13131a] border-2 border-[#22c55e]/50 shadow-[0_0_40px_rgba(34,197,94,0.2)]">
         <div className="flex flex-col items-center text-center space-y-6">
-          <div className="p-4 rounded-full bg-success/10">
-            <CheckCircle className="h-12 w-12 text-success" />
+          <div className="p-4 rounded-full bg-[#22c55e]/10">
+            <CheckCircle className="h-12 w-12 text-[#22c55e]" />
           </div>
           
-          <h2 className="text-2xl font-bold text-success">Certificate Verified</h2>
+          <h2 className="text-2xl font-bold text-[#22c55e]">Certificate Verified</h2>
           
-          <div className="w-full space-y-4 p-6 rounded-xl bg-muted/30">
+          <div className="w-full space-y-4 p-6 rounded-xl bg-[#1a1a2e]">
             <div className="grid grid-cols-2 gap-4 text-left">
               <div className="space-y-1">
-                <p className="text-xs text-muted-foreground uppercase tracking-wider">Recipient</p>
-                <p className="font-medium">{result.recipient}</p>
+                <p className="text-xs text-[#64748b] uppercase tracking-wider">Recipient</p>
+                <p className="font-medium text-white">{result.recipient}</p>
               </div>
               <div className="space-y-1">
-                <p className="text-xs text-muted-foreground uppercase tracking-wider">Issuer</p>
-                <p className="font-medium">{result.issuer}</p>
+                <p className="text-xs text-[#64748b] uppercase tracking-wider">Issuer</p>
+                <p className="font-medium text-white">{result.issuer}</p>
               </div>
               <div className="space-y-1">
-                <p className="text-xs text-muted-foreground uppercase tracking-wider">Event</p>
-                <p className="font-medium">{result.event}</p>
+                <p className="text-xs text-[#64748b] uppercase tracking-wider">Event</p>
+                <p className="font-medium text-white">{result.event}</p>
               </div>
               <div className="space-y-1">
-                <p className="text-xs text-muted-foreground uppercase tracking-wider">Date</p>
-                <p className="font-medium">{result.date && formatDate(result.date)}</p>
+                <p className="text-xs text-[#64748b] uppercase tracking-wider">Date</p>
+                <p className="font-medium text-white">{result.date && formatDate(result.date)}</p>
               </div>
             </div>
           </div>
 
           <button
             onClick={resetForm}
-            className="px-6 py-3 rounded-lg bg-secondary text-secondary-foreground font-medium transition-all duration-300 hover:shadow-[0_0_20px_rgba(13,148,136,0.5)]"
+            className="px-6 py-3 rounded-lg bg-[#0d9488] text-white font-medium transition-all duration-300 hover:shadow-[0_0_20px_#0d9488]"
           >
             Verify Another Certificate
           </button>
@@ -154,17 +154,17 @@ export function VerifyForm() {
   // Not Verified Result
   if (result && !result.verified) {
     return (
-      <div className="w-full max-w-xl mx-auto p-8 rounded-2xl bg-card border-2 border-destructive/50 shadow-[0_0_40px_rgba(239,68,68,0.2)]">
+      <div className="w-full max-w-xl mx-auto p-8 rounded-2xl bg-[#13131a] border-2 border-[#ef4444]/50 shadow-[0_0_40px_rgba(239,68,68,0.2)]">
         <div className="flex flex-col items-center text-center space-y-6">
-          <div className="p-4 rounded-full bg-destructive/10">
-            <XCircle className="h-12 w-12 text-destructive" />
+          <div className="p-4 rounded-full bg-[#ef4444]/10">
+            <XCircle className="h-12 w-12 text-[#ef4444]" />
           </div>
           
-          <h2 className="text-2xl font-bold text-destructive">Certificate Not Found</h2>
+          <h2 className="text-2xl font-bold text-[#ef4444]">Certificate Not Found</h2>
           
-          <div className="flex items-start gap-3 p-4 rounded-xl bg-destructive/10 text-destructive">
-            <AlertTriangle className="h-5 w-5 shrink-0 mt-0.5" />
-            <p className="text-sm text-left">
+          <div className="flex items-start gap-3 p-4 rounded-xl bg-[#ef4444]/10">
+            <AlertTriangle className="h-5 w-5 shrink-0 mt-0.5 text-[#ef4444]" />
+            <p className="text-sm text-left text-[#fca5a5]">
               This certificate may be fake or not registered on the blockchain. 
               Please verify the source of this document.
             </p>
@@ -172,7 +172,7 @@ export function VerifyForm() {
 
           <button
             onClick={resetForm}
-            className="px-6 py-3 rounded-lg bg-secondary text-secondary-foreground font-medium transition-all duration-300 hover:shadow-[0_0_20px_rgba(13,148,136,0.5)]"
+            className="px-6 py-3 rounded-lg bg-[#0d9488] text-white font-medium transition-all duration-300 hover:shadow-[0_0_20px_#0d9488]"
           >
             Try Another Certificate
           </button>
@@ -183,7 +183,7 @@ export function VerifyForm() {
 
   // Upload Form
   return (
-    <div className="w-full max-w-xl mx-auto p-8 rounded-2xl bg-card border border-border/50">
+    <div className="w-full max-w-xl mx-auto p-8 rounded-2xl bg-[#13131a] border border-[rgba(13,148,136,0.3)]">
       <div className="space-y-6">
         {/* Drop Zone */}
         <div
@@ -193,32 +193,32 @@ export function VerifyForm() {
           onDrop={handleDrop}
           className={`flex flex-col items-center justify-center p-12 rounded-xl border-2 border-dashed cursor-pointer transition-all duration-300 ${
             isDragging
-              ? "border-secondary bg-secondary/10"
+              ? "border-[#0d9488] bg-[#0d9488]/10"
               : file
-              ? "border-secondary/50 bg-secondary/5"
-              : "border-border/50 hover:border-secondary/50 hover:bg-muted/20"
+              ? "border-[#0d9488]/50 bg-[#0d9488]/5"
+              : "border-[rgba(13,148,136,0.3)] hover:border-[#0d9488]/60 hover:bg-[#1a1a2e]"
           }`}
         >
           {file ? (
             <div className="flex flex-col items-center gap-4">
-              <div className="p-4 rounded-full bg-secondary/10">
-                <FileText className="h-10 w-10 text-secondary" />
+              <div className="p-4 rounded-full bg-[#0d9488]/10">
+                <FileText className="h-10 w-10 text-[#0d9488]" />
               </div>
               <div className="text-center">
-                <p className="font-medium text-secondary">{file.name}</p>
-                <p className="text-sm text-muted-foreground mt-1">
+                <p className="font-medium text-[#0d9488]">{file.name}</p>
+                <p className="text-sm text-[#cbd5e1] mt-1">
                   {(file.size / 1024).toFixed(1)} KB
                 </p>
               </div>
             </div>
           ) : (
-            <div className="flex flex-col items-center gap-4 text-muted-foreground">
-              <div className="p-4 rounded-full bg-muted/30">
-                <Upload className="h-10 w-10" />
+            <div className="flex flex-col items-center gap-4">
+              <div className="p-4 rounded-full bg-[#1a1a2e]">
+                <Upload className="h-10 w-10 text-[#cbd5e1]" />
               </div>
               <div className="text-center">
-                <p className="font-medium text-foreground">Drop certificate here or click to upload</p>
-                <p className="text-sm mt-1">PDF, PNG, JPG up to 10MB</p>
+                <p className="font-medium text-white">Drop certificate here or click to upload</p>
+                <p className="text-sm mt-1 text-[#64748b]">PDF, PNG, JPG up to 10MB</p>
               </div>
             </div>
           )}
@@ -236,7 +236,7 @@ export function VerifyForm() {
         <button
           onClick={handleVerify}
           disabled={!file || isVerifying}
-          className="w-full flex items-center justify-center gap-2 px-6 py-4 rounded-lg bg-secondary text-secondary-foreground font-semibold text-lg transition-all duration-300 hover:shadow-[0_0_30px_rgba(13,148,136,0.6)] disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full flex items-center justify-center gap-2 px-6 py-4 rounded-lg bg-[#0d9488] text-white font-semibold text-lg transition-all duration-300 hover:shadow-[0_0_20px_#0d9488] disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {isVerifying ? (
             <>
