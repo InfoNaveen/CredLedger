@@ -3,30 +3,7 @@
 import { useState, useRef, useCallback } from "react"
 import { Upload, FileText, Loader2, CheckCircle, XCircle, AlertTriangle } from "lucide-react"
 
-// Mock API response for certificate verification
-// TODO: Replace with real Axios call to POST /api/verify-certificate
-const mockVerifyCertificate = async (): Promise<{
-  verified: boolean
-  recipient?: string
-  issuer?: string
-  event?: string
-  date?: string
-}> => {
-  // Simulate network delay
-  await new Promise((resolve) => setTimeout(resolve, 1500))
-  
-  // Default to verified state for demo purposes
-  return {
-    verified: true,
-    recipient: "Naveen Patil",
-    issuer: "HackIndia",
-    event: "Web3 Hackathon",
-    date: "2026-02-10",
-  }
-  
-  // Not verified response (uncomment to test):
-  // return { verified: false }
-}
+const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:5000";
 
 interface VerificationResult {
   verified: boolean
@@ -76,12 +53,10 @@ export function VerifyForm() {
     setIsVerifying(true)
 
     try {
-      // Mock API call - replace with real Axios call
-      // const formPayload = new FormData()
-      // formPayload.append('file', file)
-      // const response = await axios.post('/api/verify-certificate', formPayload)
-
-      const response = await mockVerifyCertificate()
+      const formPayload = new FormData()
+      formPayload.append('file', file)
+      const res = await fetch(`${BACKEND_URL}/api/verify-certificate`, { method: 'POST', body: formPayload })
+      const response = await res.json()
       setResult(response)
     } catch (error) {
       console.error("Failed to verify certificate:", error)

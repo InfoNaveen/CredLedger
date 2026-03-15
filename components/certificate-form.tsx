@@ -3,22 +3,7 @@
 import { useState, useRef } from "react"
 import { Upload, FileText, Loader2, CheckCircle, ExternalLink } from "lucide-react"
 
-// Mock API response for certificate issuance
-// TODO: Replace with real Axios call to POST /api/issue-certificate
-const mockIssueCertificate = async (): Promise<{
-  success: boolean
-  certificateHash: string
-  ipfsUrl: string
-}> => {
-  // Simulate network delay
-  await new Promise((resolve) => setTimeout(resolve, 1500))
-  
-  return {
-    success: true,
-    certificateHash: "0xabc123def456",
-    ipfsUrl: "https://ipfs.io/ipfs/mockxyz123",
-  }
-}
+const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:5000";
 
 interface FormData {
   recipient: string
@@ -85,16 +70,14 @@ export function CertificateForm() {
     setIsSubmitting(true)
 
     try {
-      // Mock API call - replace with real Axios call
-      // const formPayload = new FormData()
-      // formPayload.append('recipient', formData.recipient)
-      // formPayload.append('issuer', formData.issuer)
-      // formPayload.append('event', formData.event)
-      // formPayload.append('date', formData.date)
-      // formPayload.append('file', formData.file!)
-      // const response = await axios.post('/api/issue-certificate', formPayload)
-
-      const response = await mockIssueCertificate()
+      const formPayload = new FormData()
+      formPayload.append('recipient', formData.recipient)
+      formPayload.append('issuer', formData.issuer)
+      formPayload.append('event', formData.event)
+      formPayload.append('date', formData.date)
+      formPayload.append('file', formData.file!)
+      const res = await fetch(`${BACKEND_URL}/api/issue-certificate`, { method: 'POST', body: formPayload })
+      const response = await res.json()
 
       if (response.success) {
         setIssuedCertificate({
