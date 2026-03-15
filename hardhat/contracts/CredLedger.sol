@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-contract ProofChain {
+contract CredLedger {
     struct Certificate {
         string hash;
         string recipient;

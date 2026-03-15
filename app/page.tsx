@@ -15,7 +15,7 @@ export default function Home() {
           {/* Main headline */}
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-balance">
             <span className="bg-gradient-to-r from-[#7c3aed] to-[#0d9488] bg-clip-text text-transparent">
-              ProofChain
+              CredLedger
             </span>
           </h1>
 
@@ -112,7 +112,7 @@ export default function Home() {
       <footer className="border-t border-[rgba(124,58,237,0.2)] px-4 py-8">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-[#cbd5e1]">
           <p>Built on blockchain technology for trustless verification.</p>
-          <p className="font-mono text-xs text-[#e2e8f0]">ProofChain v1.0</p>
+          <p className="font-mono text-xs text-[#e2e8f0]">CredLedger v1.0</p>
         </div>
       </footer>
     </div>

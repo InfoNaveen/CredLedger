@@ -3,20 +3,20 @@ import { ArrowLeft, AlertTriangle } from "lucide-react"
 import { CertificateCard } from "@/components/certificate-card"
 
 // Mock API response for certificate lookup by hash
-// TODO: Replace with real Axios call to GET /api/certificate/:hash
+// This page is for direct hash-based lookup (not used by the main verify flow)
 async function getCertificateByHash(hash: string) {
   // Simulate network delay
   await new Promise((resolve) => setTimeout(resolve, 500))
   
-  // Mock response - return certificate data for demo hash
-  if (hash === "0xabc123def456" || hash.length > 10) {
+  // Only return mock data for the exact demo hash
+  if (hash === "0xabc123def456") {
     return {
       hash: hash,
       recipient: "Naveen Patil",
       issuer: "HackIndia",
       event: "Web3 Hackathon",
       date: "2026-02-10",
-      ipfsUrl: "ipfs://mockxyz123",
+      ipfsUrl: "https://ipfs.io/ipfs/QmDemo",
     }
   }
   

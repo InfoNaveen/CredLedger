@@ -1,6 +1,6 @@
-# ProofChain
+# CredLedger
 
-A decentralized certificate verification system built for Web3 hackathons. Certificates are stored on IPFS and their cryptographic hashes are anchored on the blockchain — making them tamper-proof and publicly verifiable by anyone.
+A decentralized certificate verification system. Certificates are stored on IPFS and their cryptographic hashes are anchored on the blockchain — tamper-proof and publicly verifiable by anyone.
 
 ---
 
@@ -10,7 +10,7 @@ Fake certificates and credentials are rampant and nearly impossible to verify at
 
 ## The Solution
 
-ProofChain uses SHA256 hashing + IPFS storage + blockchain immutability to create a verification system that requires no trust in any central authority.
+CredLedger uses SHA256 hashing + IPFS storage + blockchain immutability to create a verification system that requires no trust in any central authority.
 
 ---
 
@@ -20,7 +20,7 @@ ProofChain uses SHA256 hashing + IPFS storage + blockchain immutability to creat
 1. Issuer uploads a certificate file with metadata (recipient, event, date)
 2. Backend generates a SHA256 hash of the file
 3. File is pinned to IPFS via Pinata
-4. Hash + metadata is stored on-chain via the `ProofChain` smart contract
+4. Hash + metadata is stored on-chain via the `CredLedger` smart contract
 5. Issuer receives the certificate hash and IPFS link
 
 **Verifying a Certificate**
@@ -48,13 +48,16 @@ ProofChain uses SHA256 hashing + IPFS storage + blockchain immutability to creat
 ## Project Structure
 
 ```
-ProofChain/
+CredLedger/
 ├── app/                        # Next.js frontend
 ├── components/                 # UI components (wired to real API)
-├── contracts/
-│   └── ProofChain.sol          # Solidity smart contract
-├── scripts/
-│   └── deploy.js               # Hardhat deployment script
+├── hardhat/
+│   ├── contracts/
+│   │   └── CredLedger.sol      # Solidity smart contract
+│   ├── scripts/
+│   │   └── deploy.js           # Hardhat deployment script
+│   ├── hardhat.config.js
+│   └── package.json
 ├── backend/
 │   ├── server.js               # Express entry point
 │   ├── .env                    # Environment variables (not committed)
@@ -64,7 +67,6 @@ ProofChain/
 │       ├── services/           # Blockchain + IPFS logic
 │       ├── utils/              # SHA256 hashing
 │       └── config/             # Contract ABI + address
-├── hardhat.config.js
 └── package.json
 ```
 
@@ -101,18 +103,21 @@ CONTRACT_ADDRESS=your_deployed_contract_address
 ### 3. Install dependencies
 
 ```bash
-# Contract dependencies (root)
-npm install
+# Frontend deps (root)
+pnpm install
 
-# Backend dependencies
+# Backend deps
 cd backend && npm install
+
+# Hardhat deps
+cd hardhat && npm install
 ```
 
 ### 4. Deploy the smart contract
 
 ```bash
-# From project root
-npm run deploy
+cd hardhat
+npx hardhat run scripts/deploy.js --network amoy
 ```
 
 Copy the printed contract address into `backend/.env` → `CONTRACT_ADDRESS`.
@@ -130,7 +135,6 @@ Runs at `http://localhost:5000`
 
 ```bash
 # From project root
-pnpm install
 pnpm dev
 ```
 
@@ -183,7 +187,7 @@ Runs at `http://localhost:3000`
 
 ## Smart Contract
 
-`ProofChain.sol` deployed on Polygon Amoy Testnet.
+`CredLedger.sol` deployed on Polygon Amoy Testnet.
 
 ```solidity
 function issueCertificate(string hash, string recipient, string issuer, string eventName, string date, string ipfsUrl)

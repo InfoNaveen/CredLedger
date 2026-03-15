@@ -32,7 +32,7 @@ export function CertificateCard({ certificate }: CertificateCardProps) {
             <Shield className="h-6 w-6 text-[#7c3aed]" />
           </div>
           <div>
-            <h2 className="text-xl font-bold text-white">ProofChain Certificate</h2>
+            <h2 className="text-xl font-bold text-white">CredLedger Certificate</h2>
             <p className="text-sm text-[#cbd5e1]">Blockchain Verified</p>
           </div>
         </div>

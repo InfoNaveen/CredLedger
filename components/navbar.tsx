@@ -58,7 +58,7 @@ export function Navbar() {
               <Shield className="h-8 w-8 text-[#7c3aed] transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(124,58,237,0.6)]" />
               <div className="absolute inset-0 bg-primary/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
-            <span className="text-xl font-bold tracking-tight text-white">ProofChain</span>
+            <span className="text-xl font-bold tracking-tight text-white">CredLedger</span>
           </Link>
 
           {/* Desktop Navigation */}

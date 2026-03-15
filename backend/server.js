@@ -13,4 +13,4 @@ app.use("/api", certificateRoutes);
 
 app.get("/health", (req, res) => res.json({ status: "ok" }));
 
-app.listen(PORT, () => console.log(`ProofChain backend running on port ${PORT}`));
+app.listen(PORT, () => console.log(`CredLedger backend running on port ${PORT}`));

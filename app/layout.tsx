@@ -8,7 +8,7 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'ProofChain - Decentralized Credential Verification',
+  title: 'CredLedger - Decentralized Credential Verification',
   description: 'Issue tamper-proof certificates on the blockchain. Verify authenticity in seconds.',
   generator: 'v0.app',
   icons: {
